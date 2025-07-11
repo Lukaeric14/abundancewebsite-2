@@ -7,7 +7,8 @@ import ManifestoOverlay from './ManifestoOverlay';
 
 function App() {
   const [manifestoOpen, setManifestoOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
+  const [videoError, setVideoError] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
     useEffect(() => {
@@ -38,9 +39,13 @@ function App() {
     <div className={`App ${isLoading ? 'loading' : 'loaded'}`}>
       <NavBar onManifestoClick={() => setManifestoOpen(true)} />
       <Hero />
-      <video
-        ref={videoRef}
-        className="App-bg-video"
+            {videoError ? (
+        <img src={process.env.PUBLIC_URL + '/fallbackimage.png'} className="App-bg-video" alt="background" />
+      ) : (
+        <video
+          ref={videoRef}
+          className="App-bg-video"
+          onError={() => setVideoError(true)}
         src={process.env.PUBLIC_URL + '/Move-In-Precise-Speed.mp4'}
         autoPlay
         loop
@@ -48,7 +53,8 @@ function App() {
         playsInline
         preload="auto"
         aria-label="Background video of precise movement"
-      />
+        />
+      )}
       <ManifestoOverlay open={manifestoOpen} onClose={() => setManifestoOpen(false)} />
       <Footer />
     </div>

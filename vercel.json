@@ -21,6 +21,10 @@
       "dest": "/Icon.png"
     },
     {
+      "src": "/fallbackimage.png",
+      "dest": "/fallbackimage.png"
+    },
+    {
       "src": "/logo192.png",
       "dest": "/logo192.png"
     },

@@ -13,7 +13,7 @@
   opacity: 1;
 }
 
-.App-bg-video {
+.App-bg-video, .App-bg-image {
   position: fixed;
   top: 0;
   left: 0;
