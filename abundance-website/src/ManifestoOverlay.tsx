@@ -16,21 +16,21 @@ const ManifestoOverlay: React.FC<ManifestoOverlayProps> = ({ open, onClose }) =>
   const [showText, setShowText] = useState(false);
   const timeouts = useRef<number[]>([]);
   const fullText = title + '\n' + manifesto;
+  const indexRef = useRef(0);
 
   useEffect(() => {
     if (open) {
       setAnimIndex(0);
       setShowText(false);
+      indexRef.current = 0;
       const animate = () => {
-        setAnimIndex((prev) => {
-          if (prev < fullText.length) {
-            timeouts.current.push(window.setTimeout(animate, TYPE_SPEED));
-            return prev + 1;
-          } else {
-            setShowText(true);
-            return prev;
-          }
-        });
+        if (indexRef.current < fullText.length) {
+          setAnimIndex(indexRef.current + 1);
+          indexRef.current++;
+          timeouts.current.push(window.setTimeout(animate, TYPE_SPEED));
+        } else {
+          setShowText(true);
+        }
       };
       animate();
     }
