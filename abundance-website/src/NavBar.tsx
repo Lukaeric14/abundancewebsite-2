@@ -17,7 +17,14 @@ const NavBar: React.FC<NavBarProps> = ({ onManifestoClick }) => {
       />
       <div className="navbar-links">
         <button className="navbar-link" style={{background: 'none', border: 'none', padding: 0, cursor: 'pointer'}} onClick={onManifestoClick}>Our Manifesto</button>
-        <a className="navbar-link" href="#socials">Socials</a>
+        <a
+          className="navbar-link"
+          href="https://www.linkedin.com/company/abundance-ai/about/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Socials
+        </a>
       </div>
     </nav>
   );
