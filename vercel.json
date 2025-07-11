@@ -13,6 +13,14 @@
       "dest": "/static/$1"
     },
     {
+      "src": "/Move-In-Precise-Speed.mp4",
+      "dest": "/Move-In-Precise-Speed.mp4"
+    },
+    {
+      "src": "/Icon.png",
+      "dest": "/Icon.png"
+    },
+    {
       "src": "/logo192.png",
       "dest": "/logo192.png"
     },

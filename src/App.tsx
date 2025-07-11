@@ -14,7 +14,7 @@ function App() {
       <Hero />
       <video
         className="App-bg-video"
-        src={process.env.PUBLIC_URL + '/Move In Precise Speed.mp4'}
+        src={process.env.PUBLIC_URL + '/Move-In-Precise-Speed.mp4'}
         autoPlay
         loop
         muted
