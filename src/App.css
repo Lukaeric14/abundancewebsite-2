@@ -5,6 +5,12 @@
   overflow: hidden;
   min-height: 100vh;
   min-width: 100vw;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.App.loaded {
+  opacity: 1;
 }
 
 .App-bg-video {
