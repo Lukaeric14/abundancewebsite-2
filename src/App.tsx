@@ -10,13 +10,22 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  useEffect(() => {
+    useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
 
-    const videoPromise = new Promise<void>((resolve) => {
+    // Promise that resolves when the video can play through
+    const canPlayPromise = new Promise<void>((resolve) => {
       video.oncanplaythrough = () => resolve();
     });
+
+    // Promise that resolves after a timeout (e.g., 5 seconds) as a fallback
+    const timeoutPromise = new Promise<void>((resolve) => {
+      setTimeout(resolve, 5000);
+    });
+
+    // Wait for either the video to be ready or the timeout, whichever comes first
+    const videoPromise = Promise.race([canPlayPromise, timeoutPromise]);
 
     const fontPromise = document.fonts.ready;
 
