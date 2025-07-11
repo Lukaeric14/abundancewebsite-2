@@ -37,7 +37,7 @@
 
 @media (max-width: 600px) {
   .hero {
-    margin-top: 80px;
+    margin-top: 140px;
     gap: 12px;
   }
   .hero-title {
@@ -45,5 +45,7 @@
   }
   .hero-subtitle {
     font-size: 1rem;
+    padding: 0 15px;
+    box-sizing: border-box;
   }
 } 
